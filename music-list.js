@@ -98,4 +98,11 @@ let allMusic = [
     src: "how-good",
     album: "Cheaper Than Therapy",
   },
+  {
+    name: "Simpler Times",
+    artist: "Reluctant Heroes",
+    img: "album-1",
+    src: "simpler-times",
+    album: "Cheaper Than Therapy",
+  },
 ];
