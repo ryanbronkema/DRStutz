@@ -16,7 +16,7 @@ const wrapper = document.querySelector(".wrapper"),
 let recent_volume = document.querySelector("#volume");
 let wave = document.getElementById("wave");
 
-let musicIndex = 1;
+let musicIndex = 3;
 isMusicPaused = true;
 
 window.addEventListener("load", () => {
@@ -29,6 +29,19 @@ function loadMusic(indexNumb) {
   musicArtist.innerText = allMusic[indexNumb - 1].artist;
   musicImg.src = `images/${allMusic[indexNumb - 1].img}.jpg`;
   mainAudio.src = `songs/${allMusic[indexNumb - 1].src}.mp3`;
+
+  mainAudio.addEventListener("loadeddata", () => {
+    // update song total duration
+    let mainAdDuration = mainAudio.duration;
+    let totalMin = Math.floor(mainAdDuration / 60);
+    let totalSec = Math.floor(mainAdDuration % 60);
+    if (totalSec < 10) {
+      //if sec is less than 10 then add 0 before it
+      totalSec = `0${totalSec}`;
+    }
+    let musicDuration = wrapper.querySelector(".max-duration");
+    musicDuration.innerText = `${totalMin}:${totalSec}`;
+  });
 }
 
 //play music function
@@ -91,7 +104,7 @@ mainAudio.addEventListener("timeupdate", (e) => {
   progressBar.style.width = `${progressWidth}%`;
 
   let musicCurrentTime = wrapper.querySelector(".current-time"),
-    musicDuartion = wrapper.querySelector(".max-duration");
+    musicDuration = wrapper.querySelector(".max-duration");
   mainAudio.addEventListener("loadeddata", () => {
     // update song total duration
     let mainAdDuration = mainAudio.duration;
@@ -101,7 +114,7 @@ mainAudio.addEventListener("timeupdate", (e) => {
       //if sec is less than 10 then add 0 before it
       totalSec = `0${totalSec}`;
     }
-    musicDuartion.innerText = `${totalMin}:${totalSec}`;
+    musicDuration.innerText = `${totalMin}:${totalSec}`;
   });
   // update playing song current time
   let currentMin = Math.floor(currentTime / 60);
@@ -188,7 +201,9 @@ for (let i = 0; i < allMusic.length; i++) {
                   <span>${allMusic[i].name}</span>
                   <p>${allMusic[i].artist}</p>
                 </div>
-                <span id="${allMusic[i].src}" class="audio-duration">3:40</span>
+                <span id="${allMusic[i].src}" class="audio-duration">${
+    allMusic[i].duration
+  }</span>
                 <audio class="${allMusic[i].src}" src="songs/${
     allMusic[i].src
   }.mp3"></audio>
