@@ -16,7 +16,7 @@ const wrapper = document.querySelector(".wrapper"),
 let recent_volume = document.querySelector("#volume");
 let wave = document.getElementById("wave");
 
-let musicIndex = 3;
+let musicIndex = 1;
 isMusicPaused = true;
 
 window.addEventListener("load", () => {
