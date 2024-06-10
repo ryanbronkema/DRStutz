@@ -133,6 +133,7 @@ body {
 .song-details {
   text-align: center;
   margin: 15px 0;
+  min-height: 67px;
 }
 
 .song-details > p {
