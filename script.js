@@ -184,7 +184,7 @@ for (let i = 0; i < allMusic.length; i++) {
   let liTag = `<li li-index="${i + 1}">
                 <div class="row">
                   <span>${allMusic[i].name}</span>
-                  <p>${allMusic[i].artist}</p>
+                  <p>${allMusic[i].album}</p>
                 </div>
                 <span id="${allMusic[i].src}" class="audio-duration">${
     allMusic[i].duration
