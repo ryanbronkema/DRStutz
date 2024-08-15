@@ -31,19 +31,29 @@ function loadMusic(indexNumb) {
 
   mainAudio.src = `songs/${allMusic[indexNumb - 1].src}.mp3`;
 
-  mainAudio.addEventListener("loadeddata", () => {
-    let mainAdDuration = mainAudio.duration;
-    let totalMin = Math.floor(mainAdDuration / 60);
-    let totalSec = Math.floor(mainAdDuration % 60);
-    if (totalSec < 10) {
-      totalSec = `0${totalSec}`;
-    }
-    let musicDuration = wrapper.querySelector(".max-duration");
-    musicDuration.innerText = `${totalMin}:${totalSec}`;
-  });
+  // Remove previous event listener if any
+  mainAudio.removeEventListener("loadeddata", updateMusicDuration);
+
+  mainAudio.addEventListener("loadeddata", updateMusicDuration);
 
   // Update the slider position based on the current album
   updateSliderToCurrentMusic();
+}
+
+function updateMusicDuration() {
+  let mainAdDuration = mainAudio.duration;
+  if (isNaN(mainAdDuration)) {
+    // Retry if the duration is not available
+    setTimeout(updateMusicDuration, 100);
+    return;
+  }
+  let totalMin = Math.floor(mainAdDuration / 60);
+  let totalSec = Math.floor(mainAdDuration % 60);
+  if (totalSec < 10) {
+    totalSec = `0${totalSec}`;
+  }
+  let musicDuration = wrapper.querySelector(".max-duration");
+  musicDuration.innerText = `${totalMin}:${totalSec}`;
 }
 
 function playMusic() {
