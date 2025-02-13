@@ -94,7 +94,7 @@ let allMusic = [
     name: "No Regrets",
     artist: "Reluctant Heroes",
     img: "album-1",
-    src: "no-regrets",
+    src: "no-regrets-v2",
     album: "Life in Open G",
   },
   {
