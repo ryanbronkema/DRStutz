@@ -1,23 +1,16 @@
 let allMusic = [
   {
+    name: "Just Another Morning",
+    artist: "Reluctant Heroes",
+    img: "album-2",
+    src: "just-another-morning",
+    album: "Album 2",
+  },
+  {
     name: "Blues Man",
     artist: "Reluctant Heroes",
     img: "album-2",
     src: "blues-man",
-    album: "Album 2",
-  },
-  {
-    name: "Memories",
-    artist: "Reluctant Heroes",
-    img: "album-2",
-    src: "memories",
-    album: "Album 2",
-  },
-  {
-    name: "How Good",
-    artist: "Reluctant Heroes",
-    img: "album-2",
-    src: "how-good",
     album: "Album 2",
   },
   {
@@ -28,10 +21,52 @@ let allMusic = [
     album: "Album 2",
   },
   {
+    name: "Supply Chain Blues",
+    artist: "Reluctant Heroes",
+    img: "album-2",
+    src: "supply-chain-blues",
+    album: "Album 2",
+  },
+  {
+    name: "Living Memories",
+    artist: "Reluctant Heroes",
+    img: "album-2",
+    src: "living-memories",
+    album: "Album 2",
+  },
+  {
+    name: "Every Now and Then",
+    artist: "Reluctant Heroes",
+    img: "album-2",
+    src: "every-now-and-then",
+    album: "Album 2",
+  },
+  {
+    name: "Long Way Up",
+    artist: "Reluctant Heroes",
+    img: "album-2",
+    src: "long-way-up",
+    album: "Album 2",
+  },
+  {
+    name: "How Good It Can Be",
+    artist: "Reluctant Heroes",
+    img: "album-2",
+    src: "how-good-it-can-be",
+    album: "Album 2",
+  },
+  {
     name: "Maybe You'll See the Light",
     artist: "Reluctant Heroes",
     img: "album-2",
     src: "maybe-youll-see-the-light",
+    album: "Album 2",
+  },
+  {
+    name: "Carolina in My Mind",
+    artist: "Reluctant Heroes",
+    img: "album-2",
+    src: "carolina-in-my-mind",
     album: "Album 2",
   },
   {

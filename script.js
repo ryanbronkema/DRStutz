@@ -26,14 +26,25 @@ window.addEventListener("load", () => {
 });
 
 function loadMusic(indexNumb) {
-  musicName.innerText = allMusic[indexNumb - 1].name;
-  musicArtist.innerText = allMusic[indexNumb - 1].artist;
+  const songData = allMusic[indexNumb - 1];
 
-  mainAudio.src = `songs/${allMusic[indexNumb - 1].src}.mp3`;
+  musicName.innerText = songData.name;
+  musicArtist.innerText = songData.artist;
+
+  // Define a mapping of album names to directory names
+  const albumDirectoryMap = {
+    "Life in Open G": "album-1",
+    "Album 2": "album-2",
+  };
+
+  // Get the correct directory, defaulting to "unknown" if not mapped
+  const albumDir = albumDirectoryMap[songData.album] || "unknown";
+
+  // Construct the file path using the mapped directory
+  mainAudio.src = `songs/${albumDir}/${songData.src}.mp3`;
 
   // Remove previous event listener if any
   mainAudio.removeEventListener("loadeddata", updateMusicDuration);
-
   mainAudio.addEventListener("loadeddata", updateMusicDuration);
 
   // Update the slider position based on the current album
