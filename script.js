@@ -190,24 +190,33 @@ closemoreMusic.addEventListener("click", () => {
   moreMusicBtn.click();
 });
 
+const albumDirectoryMap = {
+  "Life in Open G": "album-1",
+  "Album 2": "album-2",
+};
+
 const ulTag = wrapper.querySelector("ul");
 for (let i = 0; i < allMusic.length; i++) {
+  const songData = allMusic[i];
+  // Get the correct directory for the current song's album
+  const albumDir = albumDirectoryMap[songData.album] || "unknown";
+
   let liTag = `<li li-index="${i + 1}">
                 <div class="row">
-                  <span>${allMusic[i].name}</span>
-                  <p>${allMusic[i].album}</p>
+                  <span>${songData.name}</span>
+                  <p>${songData.album}</p>
                 </div>
-                <span id="${allMusic[i].src}" class="audio-duration">${
-    allMusic[i].duration
+                <span id="${songData.src}" class="audio-duration">${
+    songData.duration || "00:00"
   }</span>
-                <audio class="${allMusic[i].src}" src="songs/${
-    allMusic[i].src
+                <audio class="${songData.src}" src="songs/${albumDir}/${
+    songData.src
   }.mp3"></audio>
               </li>`;
   ulTag.insertAdjacentHTML("beforeend", liTag);
 
-  let liAudioDurationTag = ulTag.querySelector(`#${allMusic[i].src}`);
-  let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`);
+  let liAudioDurationTag = ulTag.querySelector(`#${songData.src}`);
+  let liAudioTag = ulTag.querySelector(`.${songData.src}`);
   liAudioTag.addEventListener("loadeddata", () => {
     let duration = liAudioTag.duration;
     let totalMin = Math.floor(duration / 60);

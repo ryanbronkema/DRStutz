@@ -14,8 +14,8 @@
 }
 
 :root {
-  --whitetype: #ff7480;
-  --blacktype: #9f6ea3;
+  --whitetype: #bbbdf6;
+  --blacktype: #797a9e;
   --lightblack: #515c6f;
   --white: #ffffff;
   --darkwhite: #cecaca;
@@ -27,7 +27,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #bbbdf6, #9893da, #797a9e, #72727e);
   background-size: 400% 400%;
   animation: gradient 45s ease infinite;
 }
@@ -271,7 +271,7 @@ body {
   border: none;
   height: 3px;
   margin: 0 5px;
-  background: rgb(196, 118, 147);
+  background: #797a9e;
 }
 
 input[type="range"]::-webkit-progress-value {
